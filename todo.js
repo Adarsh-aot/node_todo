@@ -28,22 +28,27 @@ const getidbydata =  (req , res) => {
 
 const adddata =  (req , res) => {
     const id = req.body.id;
-    const todo = data.find((todo) => todo.id === id)
-    if(!todo){
-        const todo = req.body
-        console.log(todo)
-        data.push(todo)
-        return res.json(data)
+    if( req.body.name ){
+        const todo = data.find((todo) => todo.id === id)
+        if(!todo){
+            const todo = req.body
+            console.log(todo)
+            data.push(todo)
+            return res.json(data)
+        }
+
+        res.status(400).json({                  
+            message : "id already exist"
+        })
+    }else{
+        res.status(400).json({                  
+            message : "Error in adding data"
+        })
     }
-
-    res.status(400).json({                  
-        message : "id already exist"
-    })
-
     
-
+    
+    
 }
-
 
 const deletedata =  (req , res) => {
     const id = req.params.id
