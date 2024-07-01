@@ -1,18 +1,11 @@
-
-// config express
 const express = require('express')
-const todo = require('./todo')
+const todo_route  = require('./todo_route')
 const app = express()
+
 const port = 3000 
 app.use(express.json())
+app.use('/todo' , todo_route)
 
-
-// routes
-app.get('/' , todo.getalldata)
-app.get('/:id' ,  todo.getidbydata)
-app.post('/' , todo.adddata)
-app.delete('/:id' , todo.deletedata)
-app.put('/:id' , todo.putdata)
 
 
 
