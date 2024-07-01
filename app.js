@@ -18,5 +18,5 @@ app.put('/:id' , todo.putdata)
 
 // listen
 app.listen(port , () => {
-    console.log("server is running .... ")
+    console.log("server is running ....")
 })
