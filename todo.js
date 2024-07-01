@@ -12,7 +12,7 @@ const getalldata = (req , res) => {
     res.json(data)
 }
 
-const getidbydata =  (req , res) => {
+const getidbydata =  (req , res) => { 
     const id = req.params.id
     const todo_id = data.find((todo) => todo.id == id)
     if(todo_id){
