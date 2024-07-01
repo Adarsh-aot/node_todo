@@ -1,3 +1,5 @@
+const {v4 : uuidv4} = require('uuid')
+
 const data = [
     {
         id : 1 ,
@@ -27,7 +29,7 @@ const getidbydata =  (req , res) => {
 
 
 const adddata =  (req , res) => {
-    const id = req.body.id;
+    const id = uuidv4()
     if( req.body.name ){
         const todo = data.find((todo) => todo.id === id)
         if(!todo){
