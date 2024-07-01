@@ -18,7 +18,7 @@ const getidbydata =  (req , res) => {
     if(todo_id){
         return res.json(todo_id)
     }
-    res.json(
+    res.status(400).json(
         {
             message : "todo not found"
         }
@@ -36,7 +36,7 @@ const adddata =  (req , res) => {
         return res.json(data)
     }
 
-    res.json({                  
+    res.status(400).json({                  
         message : "id already exist"
     })
 
@@ -53,7 +53,7 @@ const deletedata =  (req , res) => {
         return res.json(data)
     }
 
-    return res.json({
+    return res.status(400).json({
         message : "todo not found"
     })
 }
@@ -67,7 +67,7 @@ const putdata =  (req , res) => {
         data[index] = req.body
         return res.json(data)   
     }
-    return res.json({   
+    return res.status(400).json({   
         message : "todo not found"
     })
 }
