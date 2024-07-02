@@ -4,6 +4,7 @@ const router = express.Router()
 
 
 // routes
+router.get('/search' , todo.searchdata )
 router.get('/' , todo.getalldata)
 router.get('/:id' ,  todo.getidbydata)
 router.post('/' , todo.adddata)

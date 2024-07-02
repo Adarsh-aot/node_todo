@@ -86,10 +86,29 @@ const putdata =  (req , res) => {
     })
 }
 
+
+
+const searchdata = (req, res) => {
+    console.log("search");
+    const name = req.query.name;
+    console.log(name);
+    const todo = data.filter((todo) => todo.name.toLowerCase().includes(name.toLowerCase()));
+    console.log(todo);
+    if(todo.length > 0) {
+        return res.json(todo);
+    }
+    res.status(400).json({
+        message: "Todo not found"
+    });
+};
+
+
+
 module.exports = {
     getalldata , 
     getidbydata , 
     adddata ,
     deletedata ,
-    putdata
+    putdata,
+    searchdata
 }
