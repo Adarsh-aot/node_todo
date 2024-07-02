@@ -8,7 +8,10 @@ const data = [
     },
 ]
 
-
+function extractNumbersFromUUID(uuid) {
+    return uuid.replace(/\D/g, '');
+  }
+  
 
 const getalldata = (req , res) => {
     res.json(data)
@@ -29,11 +32,15 @@ const getidbydata =  (req , res) => {
 
 
 const adddata =  (req , res) => {
-    const id = uuidv4()
+    const id = extractNumbersFromUUID(uuidv4())
     if( req.body.name ){
         const todo = data.find((todo) => todo.id === id)
         if(!todo){
-            const todo = req.body
+            const todo = {
+                id ,
+                ...req.body
+            }
+            
             console.log(todo)
             data.push(todo)
             return res.json(data)
